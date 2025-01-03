@@ -1,0 +1,273 @@
+/* Global Styles */
+body {
+    font-family: "Arial";
+    margin: 0;
+    padding: 0;
+    background-color: orange;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: black;
+    text-align: center; /* Centered text */
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.sub-heading {
+    font-size: 24px; /* Size of the sub-heading */
+    text-align: center;
+    color: white; /* Lighter color for the sub-heading */
+    font-weight: 400; /* Normal weight */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* Header Styling */
+header {
+    background-color: #ffa500; /* Orange background */
+    color: white;
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 5px;
+    font-size: 24px;
+}
+
+#logo img {
+    margin-top: 15px;
+    width: 100px;
+    margin-bottom: 5px;
+}
+
+/* Chat Container Styling */
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 0px;
+}
+
+#chat-box {
+    width: 100%;
+    height: 300px;
+    overflow-y: scroll;
+    background-color: #f3f3f3;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* User Message Box */
+.user-message {
+    background-color: #d1e7dd; /* Light green background */
+    color: black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    max-width: 75%;
+    align-self: flex-end; /* Align user messages to the left */
+  
+}
+
+/* Bot Message Box */
+.bot-message {
+    background-color:#FFFFED; /* Light yellow background */
+    color: black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    max-width: 75%;
+    align-self: flex-start; /* Align bot messages to the right */
+}
+
+/* Language Button Styling */
+#language-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.lang-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.lang-btn:hover {
+    background-color: #45a049;
+}
+
+/* Input Container Styling */
+.input-container {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+#user-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#send-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#send-btn:hover {
+    background-color: #45a049;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.social-media {
+    margin-top: 15px;
+}
+
+.social-media a {
+    margin: 0 10px;
+}
+
+.social-media img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-media img:hover {
+    transform: scale(1.1);
+}
+
+/* Media Queries for Responsive Design */
+
+/* For Mobile Devices */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 32px; /* Smaller font for smaller screens */
+    }
+
+    .sub-heading {
+        font-size: 18px; /* Smaller sub-heading for mobile */
+    }
+
+    #chat-container {
+        padding: 15px;
+        margin: 20px;
+        max-width: 90%; /* Use more screen space */
+        margin-top: 0px;
+    }
+
+    #chat-box {
+        height: 200px; /* Reduce chatbox height on smaller screens */
+    }
+
+    .input-container {
+        flex-direction: column; /* Stack input fields vertically on mobile */
+    }
+
+    #user-input, #send-btn {
+        width: 100%; /* Full width for mobile inputs */
+        margin-bottom: 10px;
+    }
+
+    footer {
+        font-size: 12px; /* Smaller font for footer on mobile */
+    }
+}
+
+/* For Tablet Devices */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 40px; /* Adjust size for tablet */
+    }
+
+    .sub-heading {
+        font-size: 20px; /* Adjust sub-heading size for tablet */
+    }
+
+    #chat-container {
+        max-width: 80%; /* Use more space on tablets */
+    }
+
+    .input-container {
+        flex-direction: row; /* Keep input fields horizontal */
+    }
+
+    #user-input {
+        width: 80%; /* Slightly smaller width */
+    }
+
+    #send-btn {
+        width: 18%; /* Narrow send button */
+    }
+}
+
+/* For Large Desktop Screens */
+@media (min-width: 1200px) {
+    h1 {
+        font-size: 56px; /* Larger font on large screens */
+    }
+
+    .sub-heading {
+        font-size: 26px; /* Larger sub-heading on large screens */
+    }
+
+    #chat-container {
+        max-width: 700px; /* Wider chat container on larger screens */
+    }
+
+    footer {
+        font-size: 16px; /* Larger footer text */
+    }
+}
