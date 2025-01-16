@@ -1,5 +1,9 @@
-// Set up your OpenAI API key here
-const OPENAI_API_KEY = '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';
+// Set up your Azure OpenAI API key and endpoint here
+require('dotenv').config();
+
+const OPENAI_API_KEY = process.env.AZURE_OPENAI_API_KEY;
+const AZURE_OPENAI_ENDPOINT = process.env.AZURE_OPENAI_ENDPOINT;
+
 
 // Get DOM elements
 const sendButton = document.getElementById('send-btn');
@@ -18,27 +22,27 @@ async function sendMessage() {
     chatBox.appendChild(userMessageDiv);
     userInput.value = ''; // Clear the input field
 
-    // Send the user input to OpenAI
+    // Send the user input to Azure OpenAI
     try {
-        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        const response = await fetch(AZURE_OPENAI_ENDPOINT, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${OPENAI_API_KEY}`
             },
             body: JSON.stringify({
-                model: 'gpt-4', // Use the correct model name (replace 'gpt-4o-mini' if incorrect)
-                messages: [{ role: 'user', content: userMessage }],
+                prompt: userMessage, // Set the prompt to the user message
                 max_tokens: 100,
-                temperature: 0.7 // Optional: Adjust the temperature if needed
+                temperature: 0.7, // Optional: Adjust the temperature if needed
+                stop: ["\n"], // Optional: Adjust the stopping condition
             })
         });
 
         const data = await response.json();
-        console.log('OpenAI API Response:', data); // Log the API response
+        console.log('Azure OpenAI Response:', data); // Log the API response
 
         if (data.choices && data.choices.length > 0) {
-            const botMessage = data.choices[0].message.content.trim();
+            const botMessage = data.choices[0].text.trim();
 
             // Display AI response
             const botMessageDiv = document.createElement('div');
@@ -50,11 +54,11 @@ async function sendMessage() {
             chatBox.scrollTop = chatBox.scrollHeight;
         } else {
             console.error('No response choices available');
-            alert('No response received from OpenAI.');
+            alert('No response received from Azure OpenAI.');
         }
     } catch (error) {
         console.error('Error fetching response:', error);
-        alert('Error communicating with OpenAI. Please try again later.');
+        alert('Error communicating with Azure OpenAI. Please try again later.');
     }
 }
 
